@@ -7,6 +7,13 @@ const writeFile = async (fileName, fileContent) => {
     await fs.writeFile(fileName, fileContent);
 };
 writeFile(fileName, fileContent)
-.then((data) => console.log("File myfile.txt created and data written successfully!"))
-.catch((error) => console.log("myfile.txt already exists. Skipping write operation"))
+.then((data) => {
+    if(!fileName){
+        console.log("File myfile.txt created and data written successfully!");
+    }else{
+        console.log("myfile.txt already exists. Skipping write operation"); 
+    }
+})
+// .then((data) => console.log("File myfile.txt created and data written successfully!"))
+// .then((data) => console.log("myfile.txt already exists. Skipping write operation"))
 module.exports =  writeFile ;
